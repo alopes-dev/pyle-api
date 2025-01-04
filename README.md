@@ -1,41 +1,19 @@
-fastify-project/
-├── src/
-│ ├── routes/
-│ │ ├── index.js
-│ │ ├── users.js
-│ │ └── products.js
-│ ├── controllers/
-│ │ ├── usersController.js
-│ │ └── productsController.js
-│ ├── models/
-│ │ ├── userModel.js
-│ │ └── productModel.js
-│ ├── services/
-│ │ ├── userService.js
-│ │ └── productService.js
-│ ├── plugins/
-│ │ ├── db.js
-│ │ └── swagger.js
-│ ├── utils/
-│ │ ├── logger.js
-│ │ └── helpers.js
-│ ├── middlewares/
-│ │ ├── authMiddleware.js
-│ │ └── errorHandler.js
-│ ├── config/
-│ │ ├── index.js
-│ │ ├── env.js
-│ │ └── db.js
-│ ├── app.js
-│ └── server.js
-├── tests/
-│ ├── routes/
-│ │ ├── users.test.js
-│ │ └── products.test.js
-│ ├── utils/
-│ │ └── helpers.test.js
-├── .env
-├── .gitignore
-├── package.json
-├── README.md
-└── tsconfig.json (if using TypeScript)
+
+### Explanation
+- **src/**: Contains all the application source code.
+  - **routes/**: Handles API route definitions.
+  - **controllers/**: Manages business logic for various routes.
+  - **models/**: Defines database schemas and models.
+  - **services/**: Contains reusable services or logic.
+  - **plugins/**: Fastify plugins such as database connections and Swagger integration.
+  - **utils/**: Utility functions like logging or helpers.
+  - **middlewares/**: Middleware for authentication and error handling.
+  - **config/**: Configuration files for environment variables, database, etc.
+  - `app.js`: Main application setup.
+  - `server.js`: Entry point to start the server.
+- **tests/**: Includes unit tests for various parts of the application.
+- `.env`: Environment variables file.
+- `.gitignore`: Specifies files and directories to ignore in Git.
+- `package.json`: Node.js project configuration.
+- `README.md`: Project documentation.
+- `tsconfig.json`: TypeScript configuration file (if applicable).
