@@ -14,3 +14,12 @@ export type FastifyTypedInstance = FastifyInstance<
   FastifyBaseLogger,
   ZodTypeProvider
 >;
+
+export interface IUser {
+  id?: string;
+  name: string;
+  email: string;
+  phoneNumber: string;
+  createdAt?: string;
+  updatedAt?: string;
+}

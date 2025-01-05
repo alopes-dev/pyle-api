@@ -1,5 +1,5 @@
 import fastifyCors from "@fastify/cors";
-import { FastifyTypedInstance } from "./types.js";
+import { FastifyTypedInstance } from "@utils/types";
 import {
   jsonSchemaTransform,
   serializerCompiler,
@@ -7,7 +7,7 @@ import {
 } from "fastify-type-provider-zod";
 import fastifySwagger from "@fastify/swagger";
 import fastifySwaggerUi from "@fastify/swagger-ui";
-import { routes } from "./routes.js";
+import { registerRoutes } from "@routes/index";
 
 export const serverConfig = (app: FastifyTypedInstance) => {
   app.setValidatorCompiler(validatorCompiler);
@@ -30,5 +30,5 @@ export const serverConfig = (app: FastifyTypedInstance) => {
 
   app.register(fastifySwaggerUi, { routePrefix: "/docs" });
 
-  app.register(routes);
+  registerRoutes(app);
 };

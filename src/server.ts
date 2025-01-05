@@ -1,7 +1,7 @@
 import { fastify } from "fastify";
 import { ZodTypeProvider } from "fastify-type-provider-zod";
 
-import { serverConfig } from "./config.js";
+import { serverConfig } from "@config/ServerConfig";
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 
