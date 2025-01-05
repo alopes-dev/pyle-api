@@ -9,22 +9,31 @@ class UserRoutes {
 
   constructor(private readonly controller: UserController) {}
 
-  async register(app: FastifyTypedInstance) {
+  init(app: FastifyTypedInstance) {
+    const userSchema = {
+      schema: {
+        tags: ["users"],
+      },
+    };
+
     app.get(
       this.prefix,
       {
+        ...userSchema,
         schema: {
-          tags: ["users"],
+          ...userSchema.schema,
           description: "Get all users",
         },
       },
-      (req, reply) => this.controller.getAllUsers(req, reply)
+      this.controller.getAllUsers.bind(this.controller)
     );
+
     app.post(
       this.prefix,
       {
+        ...userSchema,
         schema: {
-          tags: ["users"],
+          ...userSchema.schema,
           description: "Create a new user",
           body: z.object({
             name: z.string(),
@@ -33,8 +42,7 @@ class UserRoutes {
           }),
         },
       },
-      (request: FastifyRequest<{ Body: IUser }>, replay) =>
-        this.controller.createUser(request, replay)
+      this.controller.createUser.bind(this.controller)
     );
   }
 }

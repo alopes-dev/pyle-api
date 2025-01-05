@@ -8,7 +8,6 @@ import {
 import fastifySwagger from "@fastify/swagger";
 import fastifySwaggerUi from "@fastify/swagger-ui";
 import { registerRoutes } from "@routes/index";
-import { z } from "zod";
 
 export const serverConfig = (app: FastifyTypedInstance) => {
   app.setValidatorCompiler(validatorCompiler);
