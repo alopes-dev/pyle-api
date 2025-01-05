@@ -3,10 +3,12 @@ import { ZodTypeProvider } from "fastify-type-provider-zod";
 
 import { serverConfig } from "@config/ServerConfig";
 
+const PORT = process.env.PORT ? Number(process.env.PORT) : 3333;
+
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 
 app.register(serverConfig);
 
-app.listen({ port: 3333 }).then(() => {
-  console.log("Server is running on port 3333");
+app.listen({ host: "0.0.0.0", port: PORT }).then(() => {
+  console.log(`HTTP server is running on port ${PORT}`);
 });
